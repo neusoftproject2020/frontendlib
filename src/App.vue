@@ -1,6 +1,6 @@
 <template>
 
-  <div id="app" class="wrapper">
+<div id="app" class="wrapper">
    <header class="main-header">
      <!-- Logo -->
      <a href="../../index2.html" class="logo">
@@ -41,28 +41,28 @@
        <ul class="sidebar-menu" data-widget="tree">
          <li class="header">系统功能选择</li>
          <li class="treeview">
-           <a href="#">
+          <router-link to="/department">
              <i class="fa fa-dashboard"></i> <span>部门管理</span>
              <span class="pull-right-container">
                <i class="fa fa-angle-left pull-right"></i>
              </span>
-           </a>          
+           </router-link>          
          </li>
 		 <li class="treeview">
-		   <a href="#">
+		   <router-link to="/behave">
 		     <i class="fa fa-dashboard"></i> <span>爱好管理</span>
 		     <span class="pull-right-container">
 		       <i class="fa fa-angle-left pull-right"></i>
 		     </span>
-		   </a>          
+		   </router-link>          
 		 </li>
 		 <li class="treeview">
-		   <a href="#">
+		  <router-link to="/employee">
 		     <i class="fa fa-dashboard"></i> <span>员工管理</span>
 		     <span class="pull-right-container">
 		       <i class="fa fa-angle-left pull-right"></i>
 		     </span>
-		   </a>          
+		   </router-link>        
 		 </li>
          
        </ul>
@@ -81,9 +81,9 @@
          <small>子功能</small>
        </h1>
        <ol class="breadcrumb">
-         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-         <li><a href="#">Examples</a></li>
-         <li class="active">Blank page</li>
+         <li><router-link to="/"><i class="fa fa-dashboard"></i>首页</router-link></li>
+         <li><a href="#"></a></li>
+         <li class="active"></li>
        </ol>
      </section>
    
@@ -94,7 +94,7 @@
        <div class="box">
          
          <div class="box-body">
-            主显示区
+            <router-view></router-view>
          </div>
          
        </div>
@@ -113,13 +113,10 @@
    </footer>
   
    <div class="control-sidebar-bg"></div>
-	
 
-  <div id="app">
-   OA系统
-    <div>张岩测试修改</div>
+</div>	
 
-  </div>
+
 </template>
 
 <style>

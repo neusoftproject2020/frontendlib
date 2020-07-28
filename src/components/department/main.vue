@@ -22,16 +22,16 @@
 				    </tr>
 				  </thead>
 				  <tbody>
-				  <c:forEach items="${departmentList}" var="dm">
+				  
 				    <tr>
 				      <td></td>
 				      <td></td>
-				      <td>${dm.name }</td>
+				      <td></td>
 				      <td><a href="tomodify.mvc" class="btn btn-default">修改</a>
 				          <a href="todelete.mvc" class="btn btn-danger">删除</a> 
 				          <a href="toview.mvc" class="btn btn-default">查看</a>  </td>
 				    </tr>
-				  </c:forEach> 
+				
 				  </tbody>
 				</table>
 	        </div>
