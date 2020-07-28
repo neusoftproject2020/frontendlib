@@ -22,11 +22,10 @@
 				    </tr>
 				  </thead>
 				  <tbody>
-				  
-				    <tr>
-				      <td></td>
-				      <td></td>
-				      <td></td>
+				    <tr v-for="dm in departmentList" v-bind:key="dm.no">
+				      <td>{{dm.no}}</td>
+				      <td>{{dm.code}}</td>
+				      <td>{{dm.name}}</td>
 				      <td><a href="tomodify.mvc" class="btn btn-default">修改</a>
 				          <a href="todelete.mvc" class="btn btn-danger">删除</a> 
 				          <a href="toview.mvc" class="btn btn-default">查看</a>  </td>
@@ -42,11 +41,39 @@
 </template>
 
 <script>
+	import axios from "axios";
 	export default {
 		name:"DepartmentMain",
 		data(){
-			return {};
+			return {
+				departmentList:[],
+				page:1,
+				rows:10,
+				count:0,
+				pageCount:0
+			};
+		},
+		created(){ //当前组件的生命周期方法，组件创建后
+			this.getList();
+		},
+		methods:{
+			getList(){
+				
+				axios.get("http://localhost:8200/department/list/all/page",{
+					params:{
+						rows:this.rows,
+						page:this.page
+					}
+				}).then(result=>{
+					this.departmentList=result.data.list;
+					this.count=result.data.count;
+					this.pageCount=result.data.pageCount;
+					
+				});
+			}
+			
 		}
+		
 	}
 </script>
 

@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 
 //引入路由管理的组件
 //首页区组件
+import AdminLogin from "./../components/admin/login.vue";
 import HomeMain  from "./../components/home/main.vue";
 import DepartmetnMain  from "./../components/department/main.vue";
 import BehaveMain  from "./../components/behave/main.vue";
@@ -13,7 +14,8 @@ Vue.use(VueRouter)
 
 const routes = [
 	{path:"/",name:"homemain",component:HomeMain},
-	{path:"/department",name:"departmentmain",component:DepartmetnMain},
+	{path:"/login",name:"login",component:AdminLogin},
+	{path:"/department",name:"departmentmain", component:DepartmetnMain},
 	{path:"/behave", name:"behavemain",component:BehaveMain},
 	{path:"/employee", name:"employeemain", component:EmployeeMain}
 ]
