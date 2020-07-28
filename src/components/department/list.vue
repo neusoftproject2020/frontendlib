@@ -27,6 +27,21 @@
 			  </tbody>
 			</table>
 		</div>
+		<div class="row">
+			<div class="col-md-6">
+			个数:<span></span>	页数:<span></span>/<span></span>
+			</div>
+			<div class="col-md-6 text-right">
+				<nav>
+				  <ul class="pagination justify-content-end">
+					<li class="page-item"><a class="page-link" href="#">首页</a></li>
+					<li class="page-item"><a class="page-link" href="#" >上页</a></li>
+					<li class="page-item"><a class="page-link" href="#" >下页</a></li>
+					<li class="page-item"><a class="page-link" href="#" >末页</a></li>
+				  </ul>
+				</nav>
+			</div>
+		</div> 
 		<!-- /.box-body -->
 		<router-link to="/department/add" class="btn btn-default">增加部门</router-link>
 	</div>

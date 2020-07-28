@@ -18,8 +18,12 @@ import BehaveList  from "./../components/behave/list.vue";
 import BehaveAdd  from "./../components/behave/add.vue";
 import BehaveModify  from "./../components/behave/modify.vue";
 import BehaveView  from "./../components/behave/view.vue";
-
+//引入员工组件 （吕海东修改）
 import EmployeeMain  from "./../components/employee/main.vue";
+import EmployeeList  from "./../components/employee/list.vue";
+import EmployeeAdd  from "./../components/employee/add.vue";
+import EmployeeModify  from "./../components/employee/modify.vue";
+import EmployeeView  from "./../components/employee/view.vue";
 
 
 Vue.use(VueRouter)
@@ -41,7 +45,13 @@ const routes = [
 			{path:"view/:no",name:"behaveview",component:BehaveView},
 			{path:"", redirect: "list" }
 		]},
-	{path:"/employee", name:"employeemain", component:EmployeeMain}
+	{path:"/employee", name:"employeemain", component:EmployeeMain,children:[
+			{path:"list",name:"employeelist",component:EmployeeList},
+			{path:"add",name:"employeeadd",component:EmployeeAdd},
+			{path:"modify/:id",name:"employeemodify",component:EmployeeModify},
+			{path:"view/:id",name:"employeeview",component:EmployeeView},
+			{path:"", redirect: "list" }
+		]}
 ]
 
 const router = new VueRouter({
