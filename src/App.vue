@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
   <div id="app" class="wrapper">
    <header class="main-header">
      <!-- Logo -->
@@ -306,6 +307,11 @@
         immediately after the control sidebar -->
    <div class="control-sidebar-bg"></div>
 	
+
+  <div id="app">
+   OA系统
+    <div>张岩测试修改</div>
+
   </div>
 </template>
 
