@@ -12,8 +12,13 @@ import DepartmetnAdd  from "./../components/department/add.vue";
 import DepartmetnModify  from "./../components/department/modify.vue";
 import DepartmetnView  from "./../components/department/view.vue";
 
-
+//引入爱好的组件
 import BehaveMain  from "./../components/behave/main.vue";
+import BehaveList  from "./../components/behave/list.vue";
+import BehaveAdd  from "./../components/behave/add.vue";
+import BehaveModify  from "./../components/behave/modify.vue";
+import BehaveView  from "./../components/behave/view.vue";
+
 import EmployeeMain  from "./../components/employee/main.vue";
 
 
@@ -29,7 +34,13 @@ const routes = [
 		{path:"view/:no",name:"departmentview",component:DepartmetnView},
 		{path:"", redirect: "list" }
 	]},
-	{path:"/behave", name:"behavemain",component:BehaveMain},
+	{path:"/behave",name:"behavetmain", component:BehaveMain,children:[
+			{path:"list",name:"behavelist",component:BehaveList},
+			{path:"add",name:"behaveadd",component:BehaveAdd},
+			{path:"modify/:no",name:"behavemodify",component:BehaveModify},
+			{path:"view/:no",name:"behaveview",component:BehaveView},
+			{path:"", redirect: "list" }
+		]},
 	{path:"/employee", name:"employeemain", component:EmployeeMain}
 ]
 
