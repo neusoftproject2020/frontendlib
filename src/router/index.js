@@ -35,7 +35,7 @@ const routes = [
 		{path:"list",name:"departmentlist",component:DepartmetnList},
 		{path:"add",name:"departmentadd",component:DepartmetnAdd},
 		{path:"modify/:no",name:"departmentmodify",component:DepartmetnModify},
-		{path:"view/:no",name:"departmentview",component:DepartmetnView},
+		{path:"view/:no",name:"departmentview",component:DepartmetnView,props:true},
 		{path:"", redirect: "list" }
 	]},
 	{path:"/behave",name:"behavetmain", component:BehaveMain,children:[

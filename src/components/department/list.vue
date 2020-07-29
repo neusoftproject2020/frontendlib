@@ -21,7 +21,7 @@
 					<td>
 					  <router-link v-bind:to="'/department/modify/'+dm.no" class="btn btn-default">修改</router-link>
 					  <a href="#" v-on:click="deleteDepartment(dm.no)"  class="btn btn-danger">删除</a> 
-					  <router-link to="/department/view" class="btn btn-default">查看</router-link>
+					  <router-link v-bind:to="{name:'departmentview', params: {no:dm.no}}" class="btn btn-default">查看</router-link>
 					</td>
 				</tr>
 			  </tbody>
@@ -87,8 +87,6 @@
 						}
 					});
 				}
-				
-				
 			}
 		}
 	}

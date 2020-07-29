@@ -8,12 +8,12 @@
 	<form  method="post" >
 	  <div class="form-group">
 		<label for="exampleInputEmail1">部门编码</label>
-		<span></span>
+		<span>{{department.code}}</span>
 		
 	  </div>
 	  <div class="form-group">
 		<label for="exampleInputPassword1">部门名称</label>
-		<span></span>
+		<span>{{department.name}}</span>
 	  </div>
 	  <router-link to="/department/list" class="btn btn-default">返回</router-link>
 	</form>
@@ -33,12 +33,21 @@
 				department:{}
 			};
 		},
+		props:{
+			no:{required:true}
+		},
 		created(){ //组件的创建生命周期函数
-			
+			this.getDepartment();
 		},
 		methods:{
 			getDepartment(){
-				
+				this.axiosJSON.get("/department/get",{
+					params:{
+						no:this.no					
+					}
+				}).then(result=>{
+					this.department=result.data.result;
+				});
 			}
 		}
 	}
