@@ -74,6 +74,8 @@
 
 <script>
 	//员工详细显示组件
+	import MainConfig from "./../../config";
+	
 	export default {
 		name:"EmployeeView",
 		data(){
@@ -100,7 +102,7 @@
 				required:true
 			}
 		},
-		created(){
+		created(){			
 			this.getEmployee();
 		},
 		methods:{
@@ -109,7 +111,7 @@
 					if(result.data.status=="OK"){
 						this.employee=result.data.result;
 						if(this.employee.photoFileName!=null){
-							this.photoUrl="http://localhost:8200/photo/"+this.employee.photoFileName;
+							this.photoUrl=MainConfig.photoRootUrl+this.employee.photoFileName;
 						}
 					}
 					else{
