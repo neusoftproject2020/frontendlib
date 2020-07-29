@@ -1,5 +1,38 @@
 <template>
-<div class="box-body">
+<div>
+	<div class="row">
+		<div clas="col-md-12">
+			<form>
+			  <div class="form-row">
+			    <div class="form-group col-md-3">
+			      <label for="inputEmail4">部门</label>
+			      <select class="form-control" >
+					  <option value="1">财务部</option>
+				  </select>
+			    </div>
+			    <div class="form-group col-md-3">
+			      <label for="inputPassword4">开始日期</label>
+			      <input type="date" class="form-control" >
+			    </div>
+				<div class="form-group col-md-3">
+				  <label for="inputPassword4">截止日期</label>
+				  <input type="date" class="form-control" id="inputPassword4">
+				</div>
+				<div class="form-group col-md-3">
+				  <label for="inputPassword4">姓名检索</label>
+				  <input type="password" class="form-control" id="inputPassword4">
+				</div>
+			  </div>
+			  
+			</form>
+			
+		</div>
+		
+		
+	</div>
+	<div class="box-body">
+	
+	
 		<table id="EmployeeTable" class="table table-bordered table-hover">
 		  <thead>
 		  <tr>
@@ -32,6 +65,7 @@
 			</tr>
 		  </tbody>
 		</table>
+	 
 		<div class="row">
 			<div class="col-md-6">
 			个数:<span></span>	页数:<span></span>/<span></span>
@@ -53,7 +87,7 @@
 			 </div>
 		 </div>  
 </div>
-	
+</div>	
 </template>
 
 <script>
@@ -66,7 +100,9 @@
 				rows:10,
 				page:1,
 				count:0,
-				pageCount:0
+				pageCount:0,
+				departmentNo:0,
+				
 			};
 		},
 		created(){
