@@ -34,7 +34,7 @@
 			};
 		},
 		props:{
-			no:{required:true}
+			no:{required:true}			
 		},
 		created(){ //组件的创建生命周期函数
 			this.getDepartment();

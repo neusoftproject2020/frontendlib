@@ -1,21 +1,21 @@
 <template>
 <div class="box box-primary">
 	<div class="box-body">
-		<form @submit.prevent="submitAdd($event)">
+		<form v-on:submit.prevent="submitAdd()">
 		<div class="form-row">
 			<div class="form-group col-md-6">
 			  <label for="inputEmail4">账号</label>
-			  <input type="text" class="form-control" v-model="employee.id">
+			  <input type="text" class="form-control" v-model="employee.id" required>
 			</div>
 			<div class="form-group col-md-6">
 			  <label for="inputPassword4">密码</label>
-			  <input type="password" class="form-control" v-model="employee.password">
+			  <input type="password" class="form-control" v-model="employee.password" required>
 			</div>
 		  </div>
 			<div class="form-row">
 			 <div class="form-group col-md-6">
 			   <label for="inputEmail4">姓名</label>
-			   <input type="text" class="form-control" v-model="employee.name">
+			   <input type="text" class="form-control" v-model="employee.name" required>
 			 </div>
 			 <div class="form-group col-md-6">
 			   <label for="inputPassword4">性别</label>
@@ -53,9 +53,9 @@
 						 <option v-for="dm in departmentList" v-bind:value="dm.no" v-bind:key="dm.no">{{dm.name}}</option>
 					 </select>
 				</div> 
-				<div class="form-group">
-										<label for="inputAddress2">员工照片</label>
-										<input type="file" class="form-control" name="employeePhoto" >
+				<div class="form-group col-md-6">
+					<label for="inputAddress2">员工照片</label>
+					<input type="file" class="form-control" name="employeePhoto" v-on:change="changePhoto($event)" >
 				</div>
 			</div>	
 			 <div class="form-row">
@@ -94,13 +94,64 @@
 					birthday:"1999-10-10",
 					department:{
 						no:1
-					}
-					
-					
+					}					
 				},
 				employeePhoto:Object,
 				selectbehaves:[]
 			};
+		},
+		created(){
+			this.getDepartmentLits();
+			this.getBehaveList();
+		},
+		methods:{
+			getDepartmentLits(){ //取得所有部门列表
+				this.axiosJSON.get("/department/list/all").then(result=>{
+					if(result.data.status=="OK"){
+						this.departmentList=result.data.list;
+					}
+					else{
+						alert(result.data.message);
+					}
+					
+				});
+			},
+			getBehaveList(){ //取得所有爱好列表
+				this.axiosJSON.get("/behave/list/all").then(result=>{
+					if(result.data.status=="OK"){
+						this.behaveList=result.data.list;
+					}
+					else{
+						alert(result.data.message);
+					}
+					
+				});
+			},
+			changePhoto(event){ //图片选择的处理
+				this.employeePhoto=event.target.files[0];			
+			},
+			submitAdd(){ //增加员工提交处理
+				let formData = new FormData();
+				formData.append("id",this.employee.id);
+				formData.append("password",this.employee.password);
+				formData.append("name",this.employee.name);
+				formData.append("sex",this.employee.sex);
+				formData.append("age",this.employee.age);
+				formData.append("salary",this.employee.salary);
+				formData.append("birthday",this.employee.birthday);
+				formData.append("joinDate",this.employee.joinDate);
+				formData.append("department.no",this.employee.department.no);
+				
+				formData.append("employeePhoto",this.employeePhoto);
+				formData.append("selectbehaves",this.selectbehaves);
+				
+				this.axiosUpload.post("/employee/add",formData).then(result=>{
+					alert(result.data.message);
+					if(result.data.status=="OK"){
+						this.$router.push("/employee/list");
+					}
+				});
+			}
 		}
 	}
 </script>
