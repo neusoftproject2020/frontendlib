@@ -76,7 +76,7 @@
 	//员工详细显示组件
 	export default {
 		name:"EmployeeView",
-		data:function(){
+		data(){
 			return {
 				employee:{
 					id:"",
@@ -91,10 +91,32 @@
 						no:0
 					}
 				},
-				selectedId:null,
 				photoUrl:"",
 				message:""
 			};
+		},
+		props:{
+			id:{
+				required:true
+			}
+		},
+		created(){
+			this.getEmployee();
+		},
+		methods:{
+			getEmployee(){
+				this.axiosJSON.get("/employee/get/"+this.id).then(result=>{
+					if(result.data.status=="OK"){
+						this.employee=result.data.result;
+						if(this.employee.photoFileName!=null){
+							this.photoUrl="http://localhost:8200/photo/"+this.employee.photoFileName;
+						}
+					}
+					else{
+						alert(result.data.message);
+					}
+				});
+			}
 		}
 	}
 	

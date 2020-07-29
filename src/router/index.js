@@ -48,8 +48,8 @@ const routes = [
 	{path:"/employee", name:"employeemain", component:EmployeeMain,children:[
 			{path:"list",name:"employeelist",component:EmployeeList},
 			{path:"add",name:"employeeadd",component:EmployeeAdd},
-			{path:"modify/:id",name:"employeemodify",component:EmployeeModify},
-			{path:"view/:id",name:"employeeview",component:EmployeeView},
+			{path:"modify/:id",name:"employeemodify",component:EmployeeModify,props:true},
+			{path:"view/:id",name:"employeeview",component:EmployeeView,props:true},
 			{path:"", redirect: "list" }
 		]}
 ]
