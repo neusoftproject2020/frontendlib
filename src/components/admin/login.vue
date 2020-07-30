@@ -7,13 +7,13 @@
   <div class="login-box-body">
     <p class="login-box-msg">请输入登录信息</p>
 
-    <form action="userlogin.do" method="post">
+    <form  method="post" v-on:submit.prevent="userlogin()">
       <div class="form-group has-feedback">
-        <input type="text" class="form-control" required name="userid" placeholder="账号">
+        <input type="text" class="form-control" required v-model="userid" placeholder="账号">
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
-        <input type="password" name="password" required class="form-control" placeholder="密码">
+        <input type="password" v-model="password" required class="form-control" placeholder="密码">
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
       <div class="row">
@@ -41,6 +41,11 @@
 				userid:"",
 				password:""
 			};
+		},
+		methods:{
+			userlogin(){  //管理员登录处理
+				
+			}
 		}
 	}
 </script>

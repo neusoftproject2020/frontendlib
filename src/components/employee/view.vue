@@ -53,6 +53,8 @@
 						<label for="inputAddress2">员工照片</label>
 						<span v-show="employee.photoFileName!=null">
 							<img v-bind:src="photoUrl" width="400" height="350" />
+							
+							<img v-bind:src="restPhotoUrl" width="400" height="350" />
 						</span>
 						<span v-show="employee.photoFileName==null">
 							无图片
@@ -74,7 +76,7 @@
 
 <script>
 	//员工详细显示组件
-	import MainConfig from "./../../config";
+	import MainConfig from "./../../config/index.js";
 	
 	export default {
 		name:"EmployeeView",
@@ -94,6 +96,7 @@
 					}
 				},
 				photoUrl:"",
+				restPhotoUrl:"",
 				message:""
 			};
 		},
@@ -112,6 +115,7 @@
 						this.employee=result.data.result;
 						if(this.employee.photoFileName!=null){
 							this.photoUrl=MainConfig.photoRootUrl+this.employee.photoFileName;
+							this.restPhotoUrl=MainConfig.restRootUrl+"employee/photo?id="+this.id
 						}
 					}
 					else{

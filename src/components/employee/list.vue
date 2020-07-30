@@ -24,16 +24,10 @@
 				  <input type="text" class="form-control" v-model="nameKey" v-on:change="getListByCondition">
 				</div>
 			  </div>
-			  
 			</form>
-			
 		</div>
-		
-		
 	</div>
 	<div class="box-body">
-	
-	
 		<table id="EmployeeTable" class="table table-bordered table-hover">
 		  <thead>
 		  <tr>
