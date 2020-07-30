@@ -15,7 +15,7 @@
 			};
 		},
 		created(){ //当前组件的生命周期方法，组件创建后
-			
+			this.$parent.mainTitle="部门管理";			
 		},
 		methods:{
 			

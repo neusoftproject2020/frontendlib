@@ -1,9 +1,7 @@
 <template>
 <!-- Default box -->
 <div class="box">
-<div class="box-header with-border">
-  <h3 class="box-title">修改部门</h3>
-</div>
+
 <div class="box-body">
   <form  method="post" v-on:submit.prevent="modify()">
 	  <div class="form-group">
@@ -42,7 +40,7 @@
 		created(){ //组件的创建生命周期函数
 			let departmentNo=this.$route.params.no;
 			this.getDepartment(departmentNo);
-			
+			this.$parent.$parent.subTitle="部门修改";
 		},
 		methods:{
 			getDepartment(no){

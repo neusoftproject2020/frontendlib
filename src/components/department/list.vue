@@ -1,8 +1,6 @@
 <template>
 	<div class="box">
-		<div class="box-header with-border">
-		  <h3 class="box-title">部门管理</h3>	          
-		</div>
+
 		<div class="box-body">
 			<table class="table table-bordered">
 			  <thead>
@@ -63,6 +61,7 @@
 		},
 		created(){ //当前组件的生命周期方法，组件创建后
 			this.getList();
+			this.$parent.$parent.subTitle="部门列表";
 		},
 		methods:{
 			getList(){

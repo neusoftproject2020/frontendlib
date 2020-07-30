@@ -7,7 +7,11 @@
 
 <script>
 	export default {
-		name:"HomeMain"
+		name:"HomeMain",
+		created(){
+			this.$parent.mainTitle="系统主页";
+			this.$parent.subTitle="欢迎界面";
+		}
 		
 	}
 </script>

@@ -68,10 +68,10 @@
 			<div class="col-md-6 text-right">
 				<nav>
 				  <ul class="pagination justify-content-end">
-					<li class="page-item"><a class="page-link" href="#">首页</a></li>
-					<li class="page-item"><a class="page-link" href="#" >上页</a></li>
-					<li class="page-item"><a class="page-link" href="#" >下页</a></li>
-					<li class="page-item"><a class="page-link" href="#" >末页</a></li>
+					<li class="page-item"><a class="page-link" href="#" v-on:click="toFirstPage()">首页</a></li>
+					<li class="page-item"><a class="page-link" href="#" v-on:click="toPreviousPage()">上页</a></li>
+					<li class="page-item"><a class="page-link" href="#" v-on:click="toNextPage()">下页</a></li>
+					<li class="page-item"><a class="page-link" href="#" v-on:click="toLastPage()">末页</a></li>
 				  </ul>
 				</nav>
 			</div>
@@ -138,7 +138,29 @@
 						alert(result.data.message);
 					}
 				});
+			},
+			toFirstPage(){
+				this.page=1;
+				this.getListByCondition();
+			},
+			toPreviousPage(){
+				if(this.page>1){
+					this.page--;
+					this.getListByCondition();
+				}
+				
+			},
+			toNextPage(){
+				if(this.page<this.pageCount){
+					this.page++;
+					this.getListByCondition();
+				}
+			},
+			toLastPage(){
+				this.page=this.pageCount;
+				this.getListByCondition();
 			}
+			
 		}
 	}
 </script>
