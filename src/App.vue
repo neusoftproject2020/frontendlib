@@ -1,25 +1,7 @@
 <template>
 
 <div id="app" class="wrapper">
-   <header class="main-header">
-     <!-- Logo -->
-     <a href="../../index2.html" class="logo">
-       <!-- mini logo for sidebar mini 50x50 pixels -->
-       <span class="logo-mini"><b></b></span>
-       <!-- logo for regular state and mobile devices -->
-       <span class="logo-lg"><b>东软OA管理系统</b></span>
-     </a>
-     <!-- Header Navbar: style can be found in header.less -->
-     <nav class="navbar navbar-static-top">
-       <!-- Sidebar toggle button-->
-       <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
-         <span class="sr-only">Toggle navigation</span>
-         <span class="icon-bar"></span>
-         <span class="icon-bar"></span>
-         <span class="icon-bar"></span>
-       </a>
-     </nav>
-   </header>
+   <home-top></home-top>
    
    <!-- =============================================== -->
    
@@ -60,18 +42,15 @@
      <!-- /.content -->
    </div>
    <!-- /.content-wrapper -->
+   <home-footer></home-footer>
    
-   <footer class="main-footer">
-     <div class="pull-right hidden-xs">
-       <b>Version</b>1.0 
-     </div>
-     <strong>Copyright &copy; 2014-2016 <a href="https://adminlte.io">东软集团有限公司</a>.</strong> 版权所有.
-   </footer>
    <div class="control-sidebar-bg"></div>
 </div>	
 </template>
 <script>
 	import HomeLeft from "./components/common/HomeLeft.vue";
+	import HomeFooter from "./components/common/HomeFooter.vue";
+	import HomeTop from "./components/common/HomeTop.vue";
 	//员工增加组件
 	export default {
 		name:"App",
@@ -85,6 +64,10 @@
 			loginuser(){
 				return this.$store.getters.loginuser;
 			}
+		},
+		components:{"home-left":HomeLeft,
+			"home-footer":HomeFooter,
+			"home-top":HomeTop
 		}
 	}
 </script>
